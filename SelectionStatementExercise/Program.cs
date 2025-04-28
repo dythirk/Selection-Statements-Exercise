@@ -7,21 +7,32 @@ namespace SelectionStatementExercise
         static void Main(string[] args)
         {
             Random r = new Random();
-            int favNumber = r.Next(1, 10);
+            int favNumber = r.Next(1, 11);
+            int response = 0;
 
-            Console.WriteLine("Guess my favorite number:");
-            int userInput = int.Parse(Console.ReadLine());
 
-            if (userInput < r)
+            while (response != favNumber)
             {
-                Console.WriteLine($"Too low!\nYou guessed: {userInput}");
+
+                Console.WriteLine("Please choose a number between 1 and 10:");
+                response = int.Parse(Console.ReadLine());
+
+                if (response < favNumber)
+                {
+                    Console.WriteLine($"Too low!\nYou guessed: {response}.\n");
+                }
+                else if (response > favNumber)
+                {
+                    Console.WriteLine($"Too high!\nYou guessed: {response}.\n");
+                }
+                else
+                    Console.WriteLine($"Exactly!\nThe number was {favNumber}.");
+
             }
-            else if (userInput > r)
-            {
-                Console.WriteLine($"Too high!\nYou guessed: {userInput}");
-            }
-            else
-                Console.WriteLine("Exactly!");
+
+
+
+
             
         }
     }
